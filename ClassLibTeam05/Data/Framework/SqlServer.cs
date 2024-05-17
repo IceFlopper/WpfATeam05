@@ -4,7 +4,7 @@ using System.Data.SqlClient;
 
 namespace ClassLibRentStrumentTeam05.Data.Framework
 {
-    abstract class SqlServer
+    public class SqlServer
     {
 
 

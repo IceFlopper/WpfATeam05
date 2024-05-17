@@ -7,7 +7,7 @@ using System.Text;
 
 namespace ClassLibTeam05.Data
 {
-    internal class CarsData : SqlServer
+    public class CarsData : SqlServer
     {
         public CarsData()
         {

@@ -1,0 +1,28 @@
+﻿<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MauiApp1.MainPage">
+
+    <StackLayout Padding="20" Spacing="20">
+        <!-- Title -->
+        <Label Text="Car List" FontSize="Title" HorizontalOptions="Center" />
+
+        <!-- Car List -->
+        <ListView x:Name="carListView" VerticalOptions="FillAndExpand">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <ViewCell>
+                        <StackLayout Padding="10">
+                            <Label Text="{Binding Make}" FontSize="Subtitle" FontAttributes="Bold" />
+                            <Label Text="{Binding Model}" FontSize="Body" />
+                            <Label Text="{Binding Year, StringFormat='Year: {0}'}" FontSize="Body" />
+                            <Label Text="{Binding Price, StringFormat='Price: {0:C}'}" FontSize="Body" />
+                        </StackLayout>
+                    </ViewCell>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+
+        <!-- Button -->
+    </StackLayout>
+
+</ContentPage>

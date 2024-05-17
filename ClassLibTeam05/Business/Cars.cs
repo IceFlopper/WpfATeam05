@@ -1,28 +1,27 @@
-﻿using System;
-using System.Collections.Generic;
-using ClassLibRentStrumentTeam05.Data.Framework;
+﻿using System.Collections.Generic;
 using ClassLibTeam05.Business.Entities;
-using ClassLibTeam05.Data;
 using ClassLibTeam05.Data.Repositories;
 
 namespace ClassLibTeam05.Business
 {
-    public static class Cars
+    public class Cars
     {
-        public static IEnumerable<Car> List()
+        private readonly CarRepository _carRepository;
+
+        public Cars(CarRepository carRepository)
         {
-            return CarRepository.CarList;
+            _carRepository = carRepository;
         }
-        public static InsertResult Add(string make, string model, int year, decimal price)
+
+        public IEnumerable<Car> List()
+        {
+            return _carRepository.GetAll();
+        }
+
+        public void Add(string make, string model, int year, decimal price)
         {
             Car car = new Car(make, model, year, price);
-
-            CarsData carsData = new CarsData();
-            InsertResult result = carsData.Insert(car);
-            return result;
+            _carRepository.Add(car);
         }
-
-
     }
-
 }

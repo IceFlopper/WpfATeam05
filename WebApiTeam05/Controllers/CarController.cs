@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using ClassLibTeam05.Business.Entities;
-using ClassLibTeam05; 
+using ClassLibTeam05.Data.Repositories;
+using System.Collections.Generic;
 
 namespace WebApiTeam05.Controllers
 {
