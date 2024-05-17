@@ -1,39 +1,35 @@
-﻿using ClassLibRentStrumentTeam05.Data.Framework;
-using ClassLibTeam05.Business.Entities;
-using System;
+﻿using System;
 using System.Data;
 using System.Data.SqlClient;
 using System.Text;
+using ClassLibRentStrumentTeam05.Data.Framework;
+using ClassLibTeam05.Business.Entities;
+using ClassLibTeam05.Data.Framework;
 
 namespace ClassLibTeam05.Data
 {
-    public class CarsData : SqlServer
+    internal class CarsData : SqlServer
     {
+
         public CarsData()
         {
             TableName = "Cars";
         }
 
-        public string TableName { get; set; }
+        public static string TableName { get; set; }
 
         public SelectResult Select()
         {
-            return base.Select(TableName);
+            // Implement your SQL SELECT operation using _sqlServer
+            string query = $"SELECT * FROM {TableName}";
+
+            SqlCommand cmd = new SqlCommand(query);
+            return Select(cmd);
         }
 
-
-        public static SelectResult GetCars()
-        {
-            // Create an instance of CarsData to perform database operations
-            CarsData carsData = new CarsData();
-            // Call the Select method to retrieve cars from the database
-            SelectResult result = carsData.Select();
-            return result;
-        }
 
         public InsertResult Insert(Car car)
         {
-            var result = new InsertResult();
             try
             {
                 // SQL Command
@@ -51,15 +47,13 @@ namespace ClassLibTeam05.Data
                     insertCommand.Parameters.Add("@price", SqlDbType.Decimal).Value = car.Price;
 
                     // Call the base class method to execute the SQL command
-                    result = InsertRecord(insertCommand);
+                    return InsertRecord(insertCommand);
                 }
             }
             catch (Exception ex)
             {
                 throw new Exception(ex.Message, ex);
             }
-            return result;
         }
-
     }
 }

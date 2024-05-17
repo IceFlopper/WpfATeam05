@@ -126,10 +126,6 @@
       <Project>{15101c90-118c-47b1-a34d-d1971a1a7ab1}</Project>
       <Name>ClassLibTeam05</Name>
     </ProjectReference>
-    <ProjectReference Include="..\WebApiTeam05\WebApiTeam05.csproj">
-      <Project>{0b29b944-f8fa-4060-bed6-dff00240d038}</Project>
-      <Name>WebApiTeam05</Name>
-    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

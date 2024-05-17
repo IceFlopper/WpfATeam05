@@ -63,7 +63,6 @@
     <Compile Include="Data\Framework\SelectResult.cs" />
     <Compile Include="Data\Framework\Settings.cs" />
     <Compile Include="Data\Framework\SqlServer.cs" />
-    <Compile Include="Data\Repositories\CarRepository.cs" />
     <Compile Include="Data\Repositories\StudentRepository.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

@@ -1,15 +1,19 @@
-﻿using System;
+﻿using ClassLibTeam05.Data.Framework;
+using ClassLibTeam05.Business;
+using System;
 using System.Data;
 using System.Data.SqlClient;
+using ClassLibRentStrumentTeam05.Data.Framework;
+using ClassLibTeam05.Business.Entities;
+using System.Text;
 
-namespace ClassLibRentStrumentTeam05.Data.Framework
+namespace ClassLibTeam05.Data.Framework
 {
-    public class SqlServer
+    abstract class SqlServer
     {
+        public SqlConnection connection;
+        public SqlDataAdapter adapter;
 
-
-        SqlConnection connection;
-        SqlDataAdapter adapter;
         public SqlServer()
         {
             connection = new SqlConnection(Settings.GetConnectionString());
@@ -36,13 +40,6 @@ namespace ClassLibRentStrumentTeam05.Data.Framework
             }
             return result;
         }
-
-        protected SelectResult Select(string tableName)
-        {
-            SqlCommand command = new SqlCommand();
-            command.CommandText = $"SELECT * FROM {tableName}";
-            return Select(command);
-        }
         protected InsertResult InsertRecord(SqlCommand insertCommand)
         {
             InsertResult result = new InsertResult();
@@ -68,5 +65,4 @@ namespace ClassLibRentStrumentTeam05.Data.Framework
             return result;
         }
     }
-
 }

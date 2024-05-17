@@ -1,4 +1,4 @@
-using ClassLibTeam05.Data.Repositories;
+using ClassLibTeam05.Business;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -6,7 +6,7 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddControllers();
 
 // Register CarRepository as a singleton
-builder.Services.AddSingleton<CarRepository>();
+builder.Services.AddSingleton<Cars>();
 
 // Add Swagger/OpenAPI services
 builder.Services.AddEndpointsApiExplorer();

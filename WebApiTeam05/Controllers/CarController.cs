@@ -2,6 +2,10 @@
 using ClassLibTeam05.Business.Entities;
 using ClassLibTeam05.Data.Repositories;
 using System.Collections.Generic;
+using ClassLibTeam05.Data;
+using ClassLibRentStrumentTeam05.Data.Framework;
+using ClassLibTeam05.Business;
+using Newtonsoft.Json;
 
 namespace WebApiTeam05.Controllers
 {
@@ -9,30 +13,19 @@ namespace WebApiTeam05.Controllers
     [Route("api/[controller]")]
     public class CarController : ControllerBase
     {
-        private readonly CarRepository _carRepository;
-
-        public CarController(CarRepository carRepository)
-        {
-            _carRepository = carRepository;
-        }
-
         [HttpGet]
-        public ActionResult<IEnumerable<Car>> GetCars()
+        public ActionResult GetCars()
         {
-            var cars = _carRepository.GetAll(); // Use the injected CarRepository to get all cars
-            return Ok(cars);
+            Cars cars = new Cars();
+            return Ok(JsonConvert.SerializeObject(cars.Get()));
         }
 
         [HttpPost]
-        public ActionResult<Car> AddCar([FromBody] Car car)
+        public ActionResult AddCar([FromBody] Car car)
         {
-            if (car == null)
-            {
-                return BadRequest();
-            }
 
-            _carRepository.Add(car); // Use the injected CarRepository to add a new car
-            return CreatedAtAction(nameof(GetCars), car);
+            Cars cars = new Cars();
+            return Ok(cars.Add(car.Make, car.Model, car.Year, car.Price));
         }
     }
 }

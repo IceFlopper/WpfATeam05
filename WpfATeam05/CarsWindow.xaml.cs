@@ -21,7 +21,7 @@ namespace WpfATeam05
         private void LoadData()
         {
             DgdCar.ItemsSource = null;
-            DgdCar.ItemsSource = Cars.List();
+            //DgdCar.ItemsSource = Cars.List();
         }
 
         private void BtnCancel_Click(object sender, RoutedEventArgs e)
@@ -40,7 +40,7 @@ namespace WpfATeam05
             {
                 if (int.TryParse(TxtYear.Text, out int year) && decimal.TryParse(TxtPrice.Text, out decimal price))
                 {
-                    Cars.Add(TxtMake.Text, TxtModel.Text, year, price);
+                    //Cars.Add(TxtMake.Text, TxtModel.Text, year, price);
                     LoadData();
                     StackNewCar.Visibility = Visibility.Hidden;
                 }
@@ -62,7 +62,7 @@ namespace WpfATeam05
 
         private void BtnInsert_Click(object sender, RoutedEventArgs e)
         {
-            InsertResult result = Cars.Add(TxtFirst.Text, TxtLast.Text);
+            //InsertResult result = Cars.Add(TxtFirst.Text, TxtLast.Text);
         }
     }
 }
