@@ -1,28 +1,46 @@
 ﻿<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="MauiApp2.MainPage">
+             x:Class="MauiApp2.MainPage"
+             BackgroundColor="White">
 
     <StackLayout Padding="20" Spacing="20">
         <!-- Title -->
-        <Label Text="Car List" FontSize="Title" HorizontalOptions="Center" />
+        <Label Text="Car List" 
+               FontSize="32" 
+               FontAttributes="Bold" 
+               TextColor="#2c3e50" 
+               HorizontalOptions="Center" 
+               VerticalOptions="Start" />
 
         <!-- Car List -->
-        <ListView x:Name="carListView" VerticalOptions="FillAndExpand">
+        <ListView x:Name="carListView" 
+                  VerticalOptions="FillAndExpand"
+                  HasUnevenRows="True"
+                  BackgroundColor="White"
+                  SeparatorColor="#ecf0f1">
             <ListView.ItemTemplate>
                 <DataTemplate>
                     <ViewCell>
-                        <StackLayout Padding="10">
-                            <Label Text="{Binding Make}" FontSize="Subtitle" FontAttributes="Bold" />
-                            <Label Text="{Binding Model}" FontSize="Body" />
-                            <Label Text="{Binding Year, StringFormat='Year: {0}'}" FontSize="Body" />
-                            <Label Text="{Binding Price, StringFormat='Price: {0:C}'}" FontSize="Body" />
-                        </StackLayout>
+                        <Frame Margin="0,5" Padding="10" BackgroundColor="White" BorderColor="#bdc3c7" CornerRadius="10">
+                            <StackLayout>
+                                <Label Text="{Binding Make}" 
+                                       FontSize="24" 
+                                       FontAttributes="Bold" 
+                                       TextColor="#2980b9" />
+                                <Label Text="{Binding Model}" 
+                                       FontSize="20" 
+                                       TextColor="#2c3e50" />
+                                <Label Text="{Binding Year, StringFormat='Year: {0}'}" 
+                                       FontSize="18" 
+                                       TextColor="#7f8c8d" />
+                                <Label Text="{Binding Price, StringFormat='Price: {0:C}'}" 
+                                       FontSize="18" 
+                                       TextColor="#27ae60" />
+                            </StackLayout>
+                        </Frame>
                     </ViewCell>
                 </DataTemplate>
             </ListView.ItemTemplate>
         </ListView>
-
-        <!-- Button -->
     </StackLayout>
-
 </ContentPage>

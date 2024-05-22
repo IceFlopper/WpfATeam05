@@ -52,6 +52,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Business\Cars.cs" />
+    <Compile Include="Business\Entities\ApiResponse.cs" />
     <Compile Include="Business\Entities\Car.cs" />
     <Compile Include="Business\Entities\ClassRoom.cs" />
     <Compile Include="Business\Entities\Enrollment.cs" />
